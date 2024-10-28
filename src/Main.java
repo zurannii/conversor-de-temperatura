@@ -1,15 +1,34 @@
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+        Scanner scanner = new Scanner(System.in);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
+        System.out.println("Seja bem vindo ao Conversor de Temperatura");
+        System.out.println("Escolha uma Opção para conveter: ");
+        System.out.println("1 - Celsius para Fahrenheit");
+        System.out.println("2 - Fahrenheit para Celsius");
+        System.out.println("3 - Celsius para Kelvin");
+        int opcao = scanner.nextInt();
+
+        if (opcao == 1) {
+            System.out.print("Digite a temperatura em Celsius: ");
+            double celsius = scanner.nextDouble();
+            double fahrenheit = celsius * 9 / 5 + 32;
+            System.out.println("A temperatura em Farenheit é:" + fahrenheit);
+        } else if (opcao == 2) {
+            System.out.print("Digite a temperatura em Fahrenheit: ");
+            double fahrenheit = scanner.nextDouble();
+            double celsius = (fahrenheit - 32) * 5 / 9;
+            System.out.println("A temperatura em Celsius é:" + celsius);
+        } else if (opcao == 3) {
+            System.out.print("Digite a temperatura em Celsius: ");
+            double celsius = scanner.nextDouble();
+            double kelvin = celsius + 273.15;
+            System.out.println("A temperatura em Kelvin é:" + kelvin);
+        } else {
+            System.out.println("Opção inválida.");
         }
+        scanner.close();
     }
 }
